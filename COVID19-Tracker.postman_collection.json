@@ -1,0 +1,627 @@
+{
+	"info": {
+		"_postman_id": "0ce6d84f-94ac-4aea-800f-ad45863f18e5",
+		"name": "COVID19-Tracker1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "General Stats",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b24b2829-2186-4415-b372-3ecd5135f3ae",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://corona-virus-stats.herokuapp.com/api/v1/cases/general-stats",
+					"protocol": "https",
+					"host": [
+						"corona-virus-stats",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"cases",
+						"general-stats"
+					]
+				},
+				"description": "Get the general stats for corona virus"
+			},
+			"response": []
+		},
+		{
+			"name": "Country stats",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7cd9b7ae-cd67-47fa-9e49-2f4960d9abac",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://corona-virus-stats.herokuapp.com/api/v1/cases/countries-search",
+					"protocol": "https",
+					"host": [
+						"corona-virus-stats",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"cases",
+						"countries-search"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "8",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "search",
+							"value": "ke",
+							"disabled": true
+						},
+						{
+							"key": "order",
+							"value": "total_cases",
+							"disabled": true
+						},
+						{
+							"key": "how",
+							"value": "asc",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Get all countries stats"
+			},
+			"response": [
+				{
+					"name": "Country stats [with pagination options]",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://corona-virus-stats.herokuapp.com/api/v1/cases/countries-search?limit=8&page=2",
+							"protocol": "https",
+							"host": [
+								"corona-virus-stats",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cases",
+								"countries-search"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "8"
+								},
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "gunicorn/20.0.4"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 20 Mar 2020 07:34:21 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2592"
+						},
+						{
+							"key": "Vary",
+							"value": "Cookie, Origin"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"paginationMeta\": {\n            \"currentPage\": 2,\n            \"currentPageSize\": 8,\n            \"totalPages\": 23,\n            \"totalRecords\": 182\n        },\n        \"rows\": [\n            {\n                \"country\": \"Switzerland\",\n                \"country_abbreviation\": \"CH\",\n                \"total_cases\": \"4,222\",\n                \"new_cases\": \"0\",\n                \"total_deaths\": \"43\",\n                \"new_deaths\": \"0\",\n                \"total_recovered\": \"15\",\n                \"active_cases\": \"4,164\",\n                \"serious_critical\": \"0\",\n                \"cases_per_mill_pop\": \"488.0\",\n                \"flag\": \"https://www.worldometers.info/img/flags/sz-flag.gif\"\n            },\n            {\n                \"country\": \"UK\",\n                \"country_abbreviation\": \"GB\",\n                \"total_cases\": \"3,269\",\n                \"new_cases\": \"0\",\n                \"total_deaths\": \"144\",\n                \"new_deaths\": \"0\",\n                \"total_recovered\": \"65\",\n                \"active_cases\": \"3,060\",\n                \"serious_critical\": \"20\",\n                \"cases_per_mill_pop\": \"48.0\",\n                \"flag\": \"https://www.worldometers.info/img/flags/uk-flag.gif\"\n            },\n            {\n                \"country\": \"Netherlands\",\n                \"country_abbreviation\": \"NL\",\n                \"total_cases\": \"2,460\",\n                \"new_cases\": \"0\",\n                \"total_deaths\": \"76\",\n                \"new_deaths\": \"0\",\n                \"total_recovered\": \"2\",\n                \"active_cases\": \"2,382\",\n                \"serious_critical\": \"45\",\n                \"cases_per_mill_pop\": \"144.0\",\n                \"flag\": \"https://www.worldometers.info/img/flags/nl-flag.gif\"\n            },\n            {\n                \"country\": \"Austria\",\n                \"country_abbreviation\": \"AT\",\n                \"total_cases\": \"2,196\",\n                \"new_cases\": \"17\",\n                \"total_deaths\": \"6\",\n                \"new_deaths\": \"0\",\n                \"total_recovered\": \"9\",\n                \"active_cases\": \"2,181\",\n                \"serious_critical\": \"13\",\n                \"cases_per_mill_pop\": \"244.0\",\n                \"flag\": \"https://www.worldometers.info/img/flags/au-flag.gif\"\n            },\n            {\n                \"country\": \"Belgium\",\n                \"country_abbreviation\": \"BE\",\n                \"total_cases\": \"1,795\",\n                \"new_cases\": \"0\",\n                \"total_deaths\": \"21\",\n                \"new_deaths\": \"0\",\n                \"total_recovered\": \"165\",\n                \"active_cases\": \"1,609\",\n                \"serious_critical\": \"130\",\n                \"cases_per_mill_pop\": \"155.0\",\n                \"flag\": \"https://www.worldometers.info/img/flags/be-flag.gif\"\n            },\n            {\n                \"country\": \"Norway\",\n                \"country_abbreviation\": \"NO\",\n                \"total_cases\": \"1,790\",\n                \"new_cases\": \"0\",\n                \"total_deaths\": \"7\",\n                \"new_deaths\": \"0\",\n                \"total_recovered\": \"1\",\n                \"active_cases\": \"1,782\",\n                \"serious_critical\": \"27\",\n                \"cases_per_mill_pop\": \"330.0\",\n                \"flag\": \"https://www.worldometers.info/img/flags/no-flag.gif\"\n            },\n            {\n                \"country\": \"Sweden\",\n                \"country_abbreviation\": \"SE\",\n                \"total_cases\": \"1,439\",\n                \"new_cases\": \"0\",\n                \"total_deaths\": \"11\",\n                \"new_deaths\": \"0\",\n                \"total_recovered\": \"16\",\n                \"active_cases\": \"1,412\",\n                \"serious_critical\": \"21\",\n                \"cases_per_mill_pop\": \"142.0\",\n                \"flag\": \"https://www.worldometers.info/img/flags/sw-flag.gif\"\n            },\n            {\n                \"country\": \"Denmark\",\n                \"country_abbreviation\": \"DK\",\n                \"total_cases\": \"1,151\",\n                \"new_cases\": \"0\",\n                \"total_deaths\": \"6\",\n                \"new_deaths\": \"0\",\n                \"total_recovered\": \"1\",\n                \"active_cases\": \"1,144\",\n                \"serious_critical\": \"30\",\n                \"cases_per_mill_pop\": \"199.0\",\n                \"flag\": \"https://www.worldometers.info/img/flags/da-flag.gif\"\n            }\n        ]\n    },\n    \"status\": \"success\"\n}"
+				},
+				{
+					"name": "Country stats [order by a specific field]",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://corona-virus-stats.herokuapp.com/api/v1/cases/countries-search?order=total_deaths",
+							"protocol": "https",
+							"host": [
+								"corona-virus-stats",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cases",
+								"countries-search"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "8",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "swi",
+									"disabled": true
+								},
+								{
+									"key": "order",
+									"value": "total_deaths"
+								},
+								{
+									"key": "how",
+									"value": "asc",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "gunicorn/20.0.4"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 20 Mar 2020 07:37:13 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "3390"
+						},
+						{
+							"key": "Vary",
+							"value": "Cookie, Origin"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"paginationMeta\": {\n            \"currentPage\": 1,\n            \"currentPageSize\": 10,\n            \"totalPages\": 19,\n            \"totalRecords\": 182\n        },\n        \"rows\": [\n            {\n                \"country\": \"Cabo Verde\",\n                \"country_abbreviation\": \"CV\",\n                \"total_cases\": \"1\",\n                \"new_cases\": \"1\",\n                \"total_deaths\": \"0\",\n                \"new_deaths\": \"0\",\n                \"total_recovered\": \"0\",\n                \"active_cases\": \"1\",\n                \"serious_critical\": \"0\",\n                \"cases_per_mill_pop\": \"2.0\",\n                \"flag\": \"https://www.worldometers.info/img/flags/cv-flag.gif\"\n            },\n            {\n                \"country\": \"Benin\",\n                \"country_abbreviation\": \"BJ\",\n                \"total_cases\": \"2\",\n                \"new_cases\": \"0\",\n                \"total_deaths\": \"0\",\n                \"new_deaths\": \"0\",\n                \"total_recovered\": \"0\",\n                \"active_cases\": \"2\",\n                \"serious_critical\": \"0\",\n                \"cases_per_mill_pop\": \"0.2\",\n                \"flag\": \"https://www.worldometers.info/img/flags/bn-flag.gif\"\n            },\n            {\n                \"country\": \"Chad\",\n                \"country_abbreviation\": \"TD\",\n                \"total_cases\": \"1\",\n                \"new_cases\": \"0\",\n                \"total_deaths\": \"0\",\n                \"new_deaths\": \"0\",\n                \"total_recovered\": \"0\",\n                \"active_cases\": \"1\",\n                \"serious_critical\": \"0\",\n                \"cases_per_mill_pop\": \"0.06\",\n                \"flag\": \"https://www.worldometers.info/img/flags/cd-flag.gif\"\n            },\n            {\n                \"country\": \"Senegal\",\n                \"country_abbreviation\": \"SN\",\n                \"total_cases\": \"36\",\n                \"new_cases\": \"0\",\n                \"total_deaths\": \"0\",\n                \"new_deaths\": \"0\",\n                \"total_recovered\": \"2\",\n                \"active_cases\": \"34\",\n                \"serious_critical\": \"0\",\n                \"cases_per_mill_pop\": \"2.0\",\n                \"flag\": \"https://www.worldometers.info/img/flags/sg-flag.gif\"\n            },\n            {\n                \"country\": \"Isle of Man\",\n                \"country_abbreviation\": \"IM\",\n                \"total_cases\": \"1\",\n                \"new_cases\": \"0\",\n                \"total_deaths\": \"0\",\n                \"new_deaths\": \"0\",\n                \"total_recovered\": \"0\",\n                \"active_cases\": \"1\",\n                \"serious_critical\": \"0\",\n                \"cases_per_mill_pop\": \"12.0\",\n                \"flag\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/International_Flag_of_Planet_Earth.svg/800px-International_Flag_of_Planet_Earth.svg.png\"\n            },\n            {\n                \"country\": \"Djibouti\",\n                \"country_abbreviation\": \"DJ\",\n                \"total_cases\": \"1\",\n                \"new_cases\": \"0\",\n                \"total_deaths\": \"0\",\n                \"new_deaths\": \"0\",\n                \"total_recovered\": \"0\",\n                \"active_cases\": \"1\",\n                \"serious_critical\": \"0\",\n                \"cases_per_mill_pop\": \"1.0\",\n                \"flag\": \"https://www.worldometers.info/img/flags/dj-flag.gif\"\n            },\n            {\n                \"country\": \"Cameroon\",\n                \"country_abbreviation\": \"CM\",\n                \"total_cases\": \"13\",\n                \"new_cases\": \"0\",\n                \"total_deaths\": \"0\",\n                \"new_deaths\": \"0\",\n                \"total_recovered\": \"0\",\n                \"active_cases\": \"13\",\n                \"serious_critical\": \"0\",\n                \"cases_per_mill_pop\": \"0.5\",\n                \"flag\": \"https://www.worldometers.info/img/flags/cm-flag.gif\"\n            },\n            {\n                \"country\": \"Iceland\",\n                \"country_abbreviation\": \"IS\",\n                \"total_cases\": \"330\",\n                \"new_cases\": \"0\",\n                \"total_deaths\": \"0\",\n                \"new_deaths\": \"0\",\n                \"total_recovered\": \"5\",\n                \"active_cases\": \"325\",\n                \"serious_critical\": \"1\",\n                \"cases_per_mill_pop\": \"967.0\",\n                \"flag\": \"https://www.worldometers.info/img/flags/ic-flag.gif\"\n            },\n            {\n                \"country\": \"New Caledonia\",\n                \"country_abbreviation\": \"NC\",\n                \"total_cases\": \"2\",\n                \"new_cases\": \"0\",\n                \"total_deaths\": \"0\",\n                \"new_deaths\": \"0\",\n                \"total_recovered\": \"0\",\n                \"active_cases\": \"2\",\n                \"serious_critical\": \"0\",\n                \"cases_per_mill_pop\": \"7.0\",\n                \"flag\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/International_Flag_of_Planet_Earth.svg/800px-International_Flag_of_Planet_Earth.svg.png\"\n            },\n            {\n                \"country\": \"Montserrat\",\n                \"country_abbreviation\": \"MS\",\n                \"total_cases\": \"1\",\n                \"new_cases\": \"0\",\n                \"total_deaths\": \"0\",\n                \"new_deaths\": \"0\",\n                \"total_recovered\": \"0\",\n                \"active_cases\": \"1\",\n                \"serious_critical\": \"0\",\n                \"cases_per_mill_pop\": \"200.0\",\n                \"flag\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/International_Flag_of_Planet_Earth.svg/800px-International_Flag_of_Planet_Earth.svg.png\"\n            }\n        ]\n    },\n    \"status\": \"success\"\n}"
+				},
+				{
+					"name": "Country stats [With all filters]",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://corona-virus-stats.herokuapp.com/api/v1/cases/countries-search?limit=8&page=1&search=ke&order=total_cases&how=asc",
+							"protocol": "https",
+							"host": [
+								"corona-virus-stats",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cases",
+								"countries-search"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "8"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "search",
+									"value": "ke"
+								},
+								{
+									"key": "order",
+									"value": "total_cases"
+								},
+								{
+									"key": "how",
+									"value": "asc"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "gunicorn/20.0.4"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 20 Mar 2020 07:45:08 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "726"
+						},
+						{
+							"key": "Vary",
+							"value": "Cookie, Origin"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"paginationMeta\": {\n            \"currentPage\": 1,\n            \"currentPageSize\": 2,\n            \"totalPages\": 1,\n            \"totalRecords\": 2\n        },\n        \"rows\": [\n            {\n                \"country\": \"Kenya\",\n                \"country_abbreviation\": \"KE\",\n                \"total_cases\": \"7\",\n                \"new_cases\": \"0\",\n                \"total_deaths\": \"0\",\n                \"new_deaths\": \"0\",\n                \"total_recovered\": \"0\",\n                \"active_cases\": \"7\",\n                \"serious_critical\": \"0\",\n                \"cases_per_mill_pop\": \"0.1\",\n                \"flag\": \"https://www.worldometers.info/img/flags/ke-flag.gif\"\n            },\n            {\n                \"country\": \"Turkey\",\n                \"country_abbreviation\": \"TR\",\n                \"total_cases\": \"359\",\n                \"new_cases\": \"0\",\n                \"total_deaths\": \"4\",\n                \"new_deaths\": \"0\",\n                \"total_recovered\": \"0\",\n                \"active_cases\": \"355\",\n                \"serious_critical\": \"0\",\n                \"cases_per_mill_pop\": \"4.0\",\n                \"flag\": \"https://www.worldometers.info/img/flags/tu-flag.gif\"\n            }\n        ]\n    },\n    \"status\": \"success\"\n}"
+				},
+				{
+					"name": "Country stats without any filters",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://corona-virus-stats.herokuapp.com/api/v1/cases/countries-search",
+							"protocol": "https",
+							"host": [
+								"corona-virus-stats",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cases",
+								"countries-search"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "gunicorn/20.0.4"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 20 Mar 2020 07:32:05 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "3252"
+						},
+						{
+							"key": "Vary",
+							"value": "Cookie, Origin"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"paginationMeta\": {\n            \"currentPage\": 1,\n            \"currentPageSize\": 10,\n            \"totalPages\": 19,\n            \"totalRecords\": 182\n        },\n        \"rows\": [\n            {\n                \"country\": \"China\",\n                \"country_abbreviation\": \"CN\",\n                \"total_cases\": \"80,967\",\n                \"new_cases\": \"39\",\n                \"total_deaths\": \"3,248\",\n                \"new_deaths\": \"3\",\n                \"total_recovered\": \"71,150\",\n                \"active_cases\": \"6,569\",\n                \"serious_critical\": \"2,136\",\n                \"cases_per_mill_pop\": \"56.0\",\n                \"flag\": \"https://www.worldometers.info/img/flags/ch-flag.gif\"\n            },\n            {\n                \"country\": \"Italy\",\n                \"country_abbreviation\": \"IT\",\n                \"total_cases\": \"41,035\",\n                \"new_cases\": \"0\",\n                \"total_deaths\": \"3,405\",\n                \"new_deaths\": \"0\",\n                \"total_recovered\": \"4,440\",\n                \"active_cases\": \"33,190\",\n                \"serious_critical\": \"2,498\",\n                \"cases_per_mill_pop\": \"679.0\",\n                \"flag\": \"https://www.worldometers.info/img/flags/it-flag.gif\"\n            },\n            {\n                \"country\": \"Iran\",\n                \"country_abbreviation\": \"IR\",\n                \"total_cases\": \"18,407\",\n                \"new_cases\": \"0\",\n                \"total_deaths\": \"1,284\",\n                \"new_deaths\": \"0\",\n                \"total_recovered\": \"5,979\",\n                \"active_cases\": \"11,144\",\n                \"serious_critical\": \"0\",\n                \"cases_per_mill_pop\": \"219.0\",\n                \"flag\": \"https://www.worldometers.info/img/flags/ir-flag.gif\"\n            },\n            {\n                \"country\": \"Spain\",\n                \"country_abbreviation\": \"ES\",\n                \"total_cases\": \"18,077\",\n                \"new_cases\": \"0\",\n                \"total_deaths\": \"831\",\n                \"new_deaths\": \"0\",\n                \"total_recovered\": \"1,107\",\n                \"active_cases\": \"16,139\",\n                \"serious_critical\": \"939\",\n                \"cases_per_mill_pop\": \"387.0\",\n                \"flag\": \"https://www.worldometers.info/img/flags/sp-flag.gif\"\n            },\n            {\n                \"country\": \"Germany\",\n                \"country_abbreviation\": \"DE\",\n                \"total_cases\": \"15,320\",\n                \"new_cases\": \"0\",\n                \"total_deaths\": \"44\",\n                \"new_deaths\": \"0\",\n                \"total_recovered\": \"115\",\n                \"active_cases\": \"15,161\",\n                \"serious_critical\": \"2\",\n                \"cases_per_mill_pop\": \"183.0\",\n                \"flag\": \"https://www.worldometers.info/img/flags/gm-flag.gif\"\n            },\n            {\n                \"country\": \"USA\",\n                \"country_abbreviation\": \"US\",\n                \"total_cases\": \"14,366\",\n                \"new_cases\": \"577\",\n                \"total_deaths\": \"217\",\n                \"new_deaths\": \"10\",\n                \"total_recovered\": \"125\",\n                \"active_cases\": \"14,024\",\n                \"serious_critical\": \"64\",\n                \"cases_per_mill_pop\": \"43.0\",\n                \"flag\": \"https://www.worldometers.info/img/flags/us-flag.gif\"\n            },\n            {\n                \"country\": \"France\",\n                \"country_abbreviation\": \"FR\",\n                \"total_cases\": \"10,995\",\n                \"new_cases\": \"0\",\n                \"total_deaths\": \"372\",\n                \"new_deaths\": \"0\",\n                \"total_recovered\": \"1,295\",\n                \"active_cases\": \"9,328\",\n                \"serious_critical\": \"1,122\",\n                \"cases_per_mill_pop\": \"168.0\",\n                \"flag\": \"https://www.worldometers.info/img/flags/fr-flag.gif\"\n            },\n            {\n                \"country\": \"S. Korea\",\n                \"country_abbreviation\": \"KR\",\n                \"total_cases\": \"8,652\",\n                \"new_cases\": \"87\",\n                \"total_deaths\": \"94\",\n                \"new_deaths\": \"3\",\n                \"total_recovered\": \"2,233\",\n                \"active_cases\": \"6,325\",\n                \"serious_critical\": \"59\",\n                \"cases_per_mill_pop\": \"169.0\",\n                \"flag\": \"https://www.worldometers.info/img/flags/ks-flag.gif\"\n            },\n            {\n                \"country\": \"Switzerland\",\n                \"country_abbreviation\": \"CH\",\n                \"total_cases\": \"4,222\",\n                \"new_cases\": \"0\",\n                \"total_deaths\": \"43\",\n                \"new_deaths\": \"0\",\n                \"total_recovered\": \"15\",\n                \"active_cases\": \"4,164\",\n                \"serious_critical\": \"0\",\n                \"cases_per_mill_pop\": \"488.0\",\n                \"flag\": \"https://www.worldometers.info/img/flags/sz-flag.gif\"\n            },\n            {\n                \"country\": \"UK\",\n                \"country_abbreviation\": \"GB\",\n                \"total_cases\": \"3,269\",\n                \"new_cases\": \"0\",\n                \"total_deaths\": \"144\",\n                \"new_deaths\": \"0\",\n                \"total_recovered\": \"65\",\n                \"active_cases\": \"3,060\",\n                \"serious_critical\": \"20\",\n                \"cases_per_mill_pop\": \"48.0\",\n                \"flag\": \"https://www.worldometers.info/img/flags/uk-flag.gif\"\n            }\n        ]\n    },\n    \"status\": \"success\"\n}"
+				},
+				{
+					"name": "Country stats [Search by country name]",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://corona-virus-stats.herokuapp.com/api/v1/cases/countries-search?search=swi",
+							"protocol": "https",
+							"host": [
+								"corona-virus-stats",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cases",
+								"countries-search"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "8",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "swi"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "gunicorn/20.0.4"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 20 Mar 2020 07:35:27 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "447"
+						},
+						{
+							"key": "Vary",
+							"value": "Cookie, Origin"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"paginationMeta\": {\n            \"currentPage\": 1,\n            \"currentPageSize\": 1,\n            \"totalPages\": 1,\n            \"totalRecords\": 1\n        },\n        \"rows\": [\n            {\n                \"country\": \"Switzerland\",\n                \"country_abbreviation\": \"CH\",\n                \"total_cases\": \"4,222\",\n                \"new_cases\": \"0\",\n                \"total_deaths\": \"43\",\n                \"new_deaths\": \"0\",\n                \"total_recovered\": \"15\",\n                \"active_cases\": \"4,164\",\n                \"serious_critical\": \"0\",\n                \"cases_per_mill_pop\": \"488.0\",\n                \"flag\": \"https://www.worldometers.info/img/flags/sz-flag.gif\"\n            }\n        ]\n    },\n    \"status\": \"success\"\n}"
+				},
+				{
+					"name": "Country stats [order by a field in ascending order]",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://corona-virus-stats.herokuapp.com/api/v1/cases/countries-search?order=total_recovered&how=asc",
+							"protocol": "https",
+							"host": [
+								"corona-virus-stats",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cases",
+								"countries-search"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "8",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "swi",
+									"disabled": true
+								},
+								{
+									"key": "order",
+									"value": "total_recovered"
+								},
+								{
+									"key": "how",
+									"value": "asc"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "gunicorn/20.0.4"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 20 Mar 2020 07:40:58 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "3383"
+						},
+						{
+							"key": "Vary",
+							"value": "Cookie, Origin"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"paginationMeta\": {\n            \"currentPage\": 1,\n            \"currentPageSize\": 10,\n            \"totalPages\": 19,\n            \"totalRecords\": 182\n        },\n        \"rows\": [\n            {\n                \"country\": \"Cabo Verde\",\n                \"country_abbreviation\": \"CV\",\n                \"total_cases\": \"1\",\n                \"new_cases\": \"1\",\n                \"total_deaths\": \"0\",\n                \"new_deaths\": \"0\",\n                \"total_recovered\": \"0\",\n                \"active_cases\": \"1\",\n                \"serious_critical\": \"0\",\n                \"cases_per_mill_pop\": \"2.0\",\n                \"flag\": \"https://www.worldometers.info/img/flags/cv-flag.gif\"\n            },\n            {\n                \"country\": \"Benin\",\n                \"country_abbreviation\": \"BJ\",\n                \"total_cases\": \"2\",\n                \"new_cases\": \"0\",\n                \"total_deaths\": \"0\",\n                \"new_deaths\": \"0\",\n                \"total_recovered\": \"0\",\n                \"active_cases\": \"2\",\n                \"serious_critical\": \"0\",\n                \"cases_per_mill_pop\": \"0.2\",\n                \"flag\": \"https://www.worldometers.info/img/flags/bn-flag.gif\"\n            },\n            {\n                \"country\": \"Chad\",\n                \"country_abbreviation\": \"TD\",\n                \"total_cases\": \"1\",\n                \"new_cases\": \"0\",\n                \"total_deaths\": \"0\",\n                \"new_deaths\": \"0\",\n                \"total_recovered\": \"0\",\n                \"active_cases\": \"1\",\n                \"serious_critical\": \"0\",\n                \"cases_per_mill_pop\": \"0.06\",\n                \"flag\": \"https://www.worldometers.info/img/flags/cd-flag.gif\"\n            },\n            {\n                \"country\": \"Isle of Man\",\n                \"country_abbreviation\": \"IM\",\n                \"total_cases\": \"1\",\n                \"new_cases\": \"0\",\n                \"total_deaths\": \"0\",\n                \"new_deaths\": \"0\",\n                \"total_recovered\": \"0\",\n                \"active_cases\": \"1\",\n                \"serious_critical\": \"0\",\n                \"cases_per_mill_pop\": \"12.0\",\n                \"flag\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/International_Flag_of_Planet_Earth.svg/800px-International_Flag_of_Planet_Earth.svg.png\"\n            },\n            {\n                \"country\": \"Djibouti\",\n                \"country_abbreviation\": \"DJ\",\n                \"total_cases\": \"1\",\n                \"new_cases\": \"0\",\n                \"total_deaths\": \"0\",\n                \"new_deaths\": \"0\",\n                \"total_recovered\": \"0\",\n                \"active_cases\": \"1\",\n                \"serious_critical\": \"0\",\n                \"cases_per_mill_pop\": \"1.0\",\n                \"flag\": \"https://www.worldometers.info/img/flags/dj-flag.gif\"\n            },\n            {\n                \"country\": \"Cameroon\",\n                \"country_abbreviation\": \"CM\",\n                \"total_cases\": \"13\",\n                \"new_cases\": \"0\",\n                \"total_deaths\": \"0\",\n                \"new_deaths\": \"0\",\n                \"total_recovered\": \"0\",\n                \"active_cases\": \"13\",\n                \"serious_critical\": \"0\",\n                \"cases_per_mill_pop\": \"0.5\",\n                \"flag\": \"https://www.worldometers.info/img/flags/cm-flag.gif\"\n            },\n            {\n                \"country\": \"New Caledonia\",\n                \"country_abbreviation\": \"NC\",\n                \"total_cases\": \"2\",\n                \"new_cases\": \"0\",\n                \"total_deaths\": \"0\",\n                \"new_deaths\": \"0\",\n                \"total_recovered\": \"0\",\n                \"active_cases\": \"2\",\n                \"serious_critical\": \"0\",\n                \"cases_per_mill_pop\": \"7.0\",\n                \"flag\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/International_Flag_of_Planet_Earth.svg/800px-International_Flag_of_Planet_Earth.svg.png\"\n            },\n            {\n                \"country\": \"Montserrat\",\n                \"country_abbreviation\": \"MS\",\n                \"total_cases\": \"1\",\n                \"new_cases\": \"0\",\n                \"total_deaths\": \"0\",\n                \"new_deaths\": \"0\",\n                \"total_recovered\": \"0\",\n                \"active_cases\": \"1\",\n                \"serious_critical\": \"0\",\n                \"cases_per_mill_pop\": \"200.0\",\n                \"flag\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/International_Flag_of_Planet_Earth.svg/800px-International_Flag_of_Planet_Earth.svg.png\"\n            },\n            {\n                \"country\": \"Chile\",\n                \"country_abbreviation\": \"CL\",\n                \"total_cases\": \"342\",\n                \"new_cases\": \"0\",\n                \"total_deaths\": \"0\",\n                \"new_deaths\": \"0\",\n                \"total_recovered\": \"0\",\n                \"active_cases\": \"342\",\n                \"serious_critical\": \"6\",\n                \"cases_per_mill_pop\": \"18.0\",\n                \"flag\": \"https://www.worldometers.info/img/flags/ci-flag.gif\"\n            },\n            {\n                \"country\": \"Gabon\",\n                \"country_abbreviation\": \"GA\",\n                \"total_cases\": \"3\",\n                \"new_cases\": \"0\",\n                \"total_deaths\": \"0\",\n                \"new_deaths\": \"0\",\n                \"total_recovered\": \"0\",\n                \"active_cases\": \"3\",\n                \"serious_critical\": \"0\",\n                \"cases_per_mill_pop\": \"1.0\",\n                \"flag\": \"https://www.worldometers.info/img/flags/gb-flag.gif\"\n            }\n        ]\n    },\n    \"status\": \"success\"\n}"
+				}
+			]
+		}
+	],
+	"protocolProfileBehavior": {}
+}
